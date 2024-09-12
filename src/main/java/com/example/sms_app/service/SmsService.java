@@ -3,7 +3,6 @@ package com.example.sms_app.service;
 import com.example.sms_app.model.Message;
 import com.example.sms_app.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,19 +28,9 @@ public class SmsService {
         return messageRepository.save(message);
     }
 
-    private String generateRandomCode() {
-        return String.valueOf((int)(Math.random() * 900000) + 100000);
-    }
-
-    @Scheduled(fixedRate = 30000)
-    public void sendScheduledSms() {
-        String randomCode = generateRandomCode();
-        String message = "Your current code is " + randomCode;
-        sendAndSaveSms(message);
-    }
-
     public List<Message> getAllMessages() {
         return messageRepository.findAll();
     }
 }
+
 
