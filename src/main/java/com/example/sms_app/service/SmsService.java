@@ -7,13 +7,17 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Random;
 
 @Service
 public class SmsService {
 
     @Autowired
     private MessageRepository messageRepository;
+
+    public void sendAndSaveSms(String content) {
+        sendSms(content);
+        saveMessage(content);
+    }
 
     public void sendSms(String content) {
         System.out.println("Sending SMS: " + content);
@@ -29,16 +33,15 @@ public class SmsService {
         return String.valueOf((int)(Math.random() * 900000) + 100000);
     }
 
-
     @Scheduled(fixedRate = 30000)
     public void sendScheduledSms() {
         String randomCode = generateRandomCode();
         String message = "Your current code is " + randomCode;
-        sendSms(message);
-        saveMessage(message);
+        sendAndSaveSms(message);
     }
 
     public List<Message> getAllMessages() {
         return messageRepository.findAll();
     }
 }
+
