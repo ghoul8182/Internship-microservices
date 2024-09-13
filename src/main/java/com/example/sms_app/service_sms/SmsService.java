@@ -1,4 +1,4 @@
-package com.example.sms_app.service;
+package com.example.sms_app.service_sms;
 
 import com.example.sms_app.model.Message;
 import com.example.sms_app.repository.MessageRepository;

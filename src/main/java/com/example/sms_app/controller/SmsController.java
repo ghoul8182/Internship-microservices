@@ -1,7 +1,7 @@
 package com.example.sms_app.controller;
 
 import com.example.sms_app.model.Message;
-import com.example.sms_app.service.SmsService;
+import com.example.sms_app.service_sms.SmsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +10,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/sms")
 public class SmsController {
-
     @Autowired
     private SmsService smsService;
 
