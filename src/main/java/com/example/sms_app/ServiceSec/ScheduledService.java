@@ -11,13 +11,9 @@ public class ScheduledService {
     @Autowired
     private SmsService smsService;
 
-    private String generateRandomCode() {
-        return String.valueOf((int)(Math.random() * 900000) + 100000);
-    }
-
     @Scheduled(fixedRate = 30000) // Every 30 seconds
     public void sendScheduledSms() {
-        String randomCode = generateRandomCode();
+        String randomCode = CodeGenerator.generateRandomCode();
         String message = "Your current code is " + randomCode;
         smsService.sendAndSaveSms(message);
     }
