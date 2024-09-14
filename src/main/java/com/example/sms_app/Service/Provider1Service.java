@@ -4,21 +4,22 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-public class ProviderService {
+public class Provider1Service implements ISMSProvider {
 
     private final RestTemplate restTemplate;
 
-    public ProviderService(RestTemplate restTemplate) {
+    public Provider1Service(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
+    @Override
+    public void sendSMS(String message) {
+        String url = "http://localhost:8081/provider1";
+        restTemplate.getForObject(url, String.class);
+        System.out.println("Sent SMS via Provider1 with GET request: " + message);
+    }
     public String getProvider1Data() {
         String url = "http://localhost:8081/provider1";
         return restTemplate.getForObject(url, String.class);
-    }
-
-    public String postProvider2Data() {
-        String url = "http://localhost:8082/provider2";
-        return restTemplate.postForObject(url, null, String.class);
     }
 }
