@@ -34,6 +34,7 @@ public class ProviderController {
 
     @GetMapping("/provider2")
     public String getProvider2Data() {
-        return provider2Service.postProvider2Data();
+        return provider2Service.getProvider2Data();
     }
 }
+

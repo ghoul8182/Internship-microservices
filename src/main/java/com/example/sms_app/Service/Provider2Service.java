@@ -16,10 +16,13 @@ public class Provider2Service implements ISMSProvider {
     public void sendSMS(String message) {
         String url = "http://localhost:8081/provider2";
         restTemplate.postForObject(url, message, String.class);
-        System.out.println("Sent SMS via Provider2 with POST request: " + message);
+        System.out.println("Sent SMS via Provider2: " + message);
     }
-    public String postProvider2Data() {
+
+    public String getProvider2Data() {
         String url = "http://localhost:8081/provider2";
-        return restTemplate.postForObject(url, null, String.class);
+        return restTemplate.getForObject(url, String.class);
     }
 }
+
+
