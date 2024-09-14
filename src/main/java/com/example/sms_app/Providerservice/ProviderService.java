@@ -13,7 +13,7 @@ public class ProviderService {
     }
 
     public String getProvider1Data() {
-        String url = "http://localhost:8080/provider1";
+        String url = "http://localhost:8081/provider1";
         return restTemplate.getForObject(url, String.class);
     }
 
