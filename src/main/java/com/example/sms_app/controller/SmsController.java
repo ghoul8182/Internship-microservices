@@ -1,7 +1,7 @@
 package com.example.sms_app.controller;
 
+import com.example.sms_app.Service.SmsService;
 import com.example.sms_app.model.Message;
-import com.example.sms_app.service_sms.SmsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

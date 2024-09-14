@@ -13,9 +13,18 @@ import lombok.*;
 @Getter
 @Setter
 public class Message {
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String content;
+
 
 }

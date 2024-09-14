@@ -1,6 +1,6 @@
 package com.example.sms_app.controller;
 
-import com.example.sms_app.Providerservice.ProviderService;
+import com.example.sms_app.Service.ProviderService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;

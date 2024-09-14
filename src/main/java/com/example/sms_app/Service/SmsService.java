@@ -1,4 +1,4 @@
-package com.example.sms_app.service_sms;
+package com.example.sms_app.Service;
 
 import com.example.sms_app.model.Message;
 import com.example.sms_app.repository.MessageRepository;
@@ -32,5 +32,4 @@ public class SmsService {
         return messageRepository.findAll();
     }
 }
-
 
