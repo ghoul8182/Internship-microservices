@@ -1,4 +1,4 @@
-package com.example.sms_app.appcon;
+package com.example.sms_app.appconfig;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
