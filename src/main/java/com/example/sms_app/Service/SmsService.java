@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SmsService {
@@ -19,6 +20,7 @@ public class SmsService {
     }
 
     public void sendSms(String content) {
+        // Mock SMS sending logic; in a real application, integrate with an SMS service provider
         System.out.println("Sending SMS: " + content);
     }
 
@@ -31,5 +33,23 @@ public class SmsService {
     public List<Message> getAllMessages() {
         return messageRepository.findAll();
     }
-}
 
+    public Message getMessageById(Long id) {
+        Optional<Message> message = messageRepository.findById(id);
+        return message.orElse(null);
+    }
+
+    public void deleteMessageById(Long id) {
+        messageRepository.deleteById(id);
+    }
+
+    public Message updateMessage(Long id, String newContent) {
+        Optional<Message> optionalMessage = messageRepository.findById(id);
+        if (optionalMessage.isPresent()) {
+            Message message = optionalMessage.get();
+            message.setContent(newContent);
+            return messageRepository.save(message);
+        }
+        return null;
+    }
+}
