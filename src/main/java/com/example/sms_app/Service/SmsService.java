@@ -20,7 +20,6 @@ public class SmsService {
     }
 
     public void sendSms(String content) {
-        // Mock SMS sending logic; in a real application, integrate with an SMS service provider
         System.out.println("Sending SMS: " + content);
     }
 
