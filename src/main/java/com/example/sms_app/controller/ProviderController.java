@@ -1,7 +1,9 @@
 package com.example.sms_app.controller;
 
+import com.example.sms_app.Service.ISMSProvider;
 import com.example.sms_app.Service.Provider1Service;
 import com.example.sms_app.Service.Provider2Service;
+import com.example.sms_app.Service.SMSProviderFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,32 +11,28 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/send")
 public class ProviderController {
 
-    @Autowired
-    private Provider1Service provider1Service;
+    private final SMSProviderFactory providerFactory;
 
     @Autowired
-    private Provider2Service provider2Service;
-
-    @PostMapping("/provider1")
-    public String sendViaProvider1(@RequestBody String message) {
-        provider1Service.sendSMS(message);
-        return "Sent via Provider1!";
+    public ProviderController(SMSProviderFactory providerFactory) {
+        this.providerFactory = providerFactory;
     }
 
-    @PostMapping("/provider2")
-    public String sendViaProvider2(@RequestBody String message) {
-        provider2Service.sendSMS(message);
-        return "Sent via Provider2!";
+    @PostMapping
+    public String sendSms(@RequestParam int providerType, @RequestBody String message) {
+        ISMSProvider provider = providerFactory.getProvider(providerType);
+        provider.sendSMS(message);
+        return "Sent via Provider " + providerType + "!";
     }
 
     @GetMapping("/provider1")
     public String getProvider1Data() {
-        return provider1Service.getProvider1Data();
+        return ((Provider1Service) providerFactory.getProvider(1)).getProvider1Data();
     }
 
     @GetMapping("/provider2")
     public String getProvider2Data() {
-        return provider2Service.getProvider2Data();
+        return ((Provider2Service) providerFactory.getProvider(2)).getProvider2Data();
     }
 }
 
