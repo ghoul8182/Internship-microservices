@@ -11,7 +11,7 @@ public class ScheduledService {
     @Autowired
     private SmsService smsService;
 
-    @Scheduled(fixedRate = 30000)
+    @Scheduled(fixedRate = 3600000) // 1 hour
     public void sendScheduledSms() {
         String randomCode = CodeGenerator.generateRandomCode();
         String message = "Your current code is " + randomCode;
