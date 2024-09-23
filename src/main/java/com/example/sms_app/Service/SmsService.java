@@ -58,7 +58,6 @@ public class SmsService {
     public void consumeQueue1(String message) {
         try {
             System.out.println("Consumed from Queue 1: " + message);
-            sendAndSaveSms(message);
         } catch (Exception ex) {
             throw new CustomException("Error consuming message from Queue 1: " + ex.getMessage());
         }
@@ -68,9 +67,9 @@ public class SmsService {
     public void consumeQueue2(String message) {
         try {
             System.out.println("Consumed from Queue 2: " + message);
-            sendAndSaveSms(message);
         } catch (Exception ex) {
             throw new CustomException("Error consuming message from Queue 2: " + ex.getMessage());
         }
     }
 }
+

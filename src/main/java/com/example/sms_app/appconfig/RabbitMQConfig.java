@@ -1,6 +1,8 @@
 package com.example.sms_app.appconfig;
 
 import org.springframework.amqp.core.*;
+import org.springframework.amqp.rabbit.connection.ConnectionFactory;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -34,5 +36,11 @@ public class RabbitMQConfig {
     @Bean
     public Binding binding2(Queue queue2, DirectExchange exchange) {
         return BindingBuilder.bind(queue2).to(exchange).with(QUEUE_2);
+    }
+
+    @Bean
+    public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
+        RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
+        return rabbitTemplate;
     }
 }

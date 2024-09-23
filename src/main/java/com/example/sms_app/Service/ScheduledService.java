@@ -33,11 +33,9 @@ public class ScheduledService {
             String message = (String) rabbitTemplate.receiveAndConvert("queue2");
             if (message != null) {
                 System.out.println("Consumed from Queue 2: " + message);
-                smsService.sendAndSaveSms(message);
             }
         } catch (Exception ex) {
             throw new CustomException("Error occurred while consuming from Queue 2: " + ex.getMessage());
         }
     }
 }
-
