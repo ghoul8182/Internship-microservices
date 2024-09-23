@@ -2,6 +2,7 @@ package com.example.sms_app.Service;
 
 import com.example.sms_app.model.Message;
 import com.example.sms_app.repository.MessageRepository;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -50,5 +51,9 @@ public class SmsService {
             return messageRepository.save(message);
         }
         return null;
+    }
+    @RabbitListener(queues = "queue1")
+    public void consumeQueue1(String message) {
+        System.out.println("Consumed from Queue 1: " + message);
     }
 }
