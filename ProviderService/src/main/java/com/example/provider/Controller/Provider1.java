@@ -1,4 +1,4 @@
-package com.example.provider1.provider1.Controller;
+package com.example.provider.Controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

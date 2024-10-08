@@ -8,19 +8,12 @@
 		<version>3.3.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-<<<<<<< HEAD
 	<groupId>com.example.provider1</groupId>
 	<artifactId>Providers</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>provider1</name>
 	<description>Demo project for Spring Boot</description>
-=======
-	<groupId>com.example</groupId>
-	<artifactId>sms-app</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>sms-app</name>
-	<description>Cron job to send SMS</description>
->>>>>>> origin/master
+
 	<url/>
 	<licenses>
 		<license/>
@@ -36,17 +29,12 @@
 	</scm>
 	<properties>
 		<java.version>22</java.version>
-<<<<<<< HEAD
 		<maven.compiler.source>22</maven.compiler.source>
-		<maven.compiler.target>22</maven.compiler.target>
-=======
->>>>>>> origin/master
+
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-<<<<<<< HEAD
-=======
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 		<dependency>
@@ -55,13 +43,10 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
->>>>>>> origin/master
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
 		<dependency>
-<<<<<<< HEAD
-=======
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
@@ -85,15 +70,12 @@
 		</dependency>
 
 		<dependency>
->>>>>>> origin/master
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -106,8 +88,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-<<<<<<< HEAD
-=======
 				<configuration>
 					<excludes>
 						<exclude>
@@ -116,7 +96,6 @@
 						</exclude>
 					</excludes>
 				</configuration>
->>>>>>> origin/master
 			</plugin>
 		</plugins>
 	</build>

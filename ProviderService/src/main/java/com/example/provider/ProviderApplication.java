@@ -1,13 +1,13 @@
-package com.example.provider1.provider1;
+package com.example.provider;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Provider1Application {
+public class ProviderApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Provider1Application.class, args);
+		SpringApplication.run(ProviderApplication.class, args);
 	}
 
 }
